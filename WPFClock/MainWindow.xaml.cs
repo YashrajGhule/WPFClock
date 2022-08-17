@@ -17,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static PInvoke.User32;
 
 namespace WPFClock
 {
@@ -28,6 +27,10 @@ namespace WPFClock
     {
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, uint dwNewLong);
+
+        [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
+        static extern IntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -65,7 +68,7 @@ namespace WPFClock
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             WindowInteropHelper helper = new WindowInteropHelper(this);
-            int style = GetWindowLong(helper.Handle, WindowLongIndexFlags.GWL_EXSTYLE);
+            int style = (int)GetWindowLongPtr(helper.Handle, -20);
             SetWindowLong(helper.Handle, -20,(uint)(128|style));
         }
     }
