@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPFClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFClock"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="250" Height="250" ResizeMode="NoResize" WindowStyle="None" ShowInTaskbar="False" AllowsTransparency="True" Background="Transparent" Padding="10" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+    <Grid>
+        <Rectangle Width="240" Height="240" Fill="#FF011013" RadiusX="200" RadiusY="200">
+        </Rectangle>
+        <Rectangle Width="215" Height="215" Fill="White" RadiusX="200" RadiusY="200"></Rectangle>
+        <Grid Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,40,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Name" Text="Hello Yashraj" TextAlignment="Center" Grid.Row="0" FontSize="20"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                <TextBlock x:Name="Hours" Text="05" FontSize="44" Padding="0,0,0,0" FontFamily="Segoe UI Semilight"/>
+                <TextBlock Text=":" FontSize="40" />
+                <TextBlock x:Name="Minutes" Text="20" FontSize="44" Padding="0,0,0,0" FontFamily="Segoe UI Semilight"/>
+                <TextBlock x:Name="AMPM" Text="PM" FontSize="28" VerticalAlignment="Bottom" Padding="4,0,0,5" FontFamily="Segoe UI Semilight"/>
+            </StackPanel>
+            <TextBlock x:Name="Day" Text="Saturday" TextAlignment="Center" Grid.Row="2" FontSize="24"/>
+            <TextBlock x:Name="Date" Text="15 Aug, 2022" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="3" FontSize="24"/>
+        </Grid>
+    </Grid>
+</Window>
